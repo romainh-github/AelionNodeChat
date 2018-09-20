@@ -1,0 +1,43 @@
+ul {
+    list-style: none;
+    height: 400px;
+    overflow: auto;
+  }
+li {
+    //background-color: #f5f8fc;
+    border: solid 1px;
+    border-color: #640a70;
+    border-radius: 25px;
+
+    margin-top: 15px;
+    margin-right:35%;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top:10px;
+    padding-bottom:10px;
+
+    display: inline-block;
+    max-width:100%; /* limit width */
+    height: auto;
+    width:auto;
+    box-shadow: 2px 2px 1px #888888;
+    
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    text-align: left;
+    font-weight: bold;
+    //word-break:break-all;
+    word-wrap: break-word;
+    
+    
+}
+p {
+    position: relative;
+    left: 10%;
+    top: 28%;
+    width:inherit;
+    
+}
+.listMessages{
+    margin:50px;
+}

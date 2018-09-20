@@ -1,3 +1,12 @@
-<p>
-  client-form works!
-</p>
+<div class="container-fluid">
+    <div class="chat-form" name="chat-form">
+      
+      <mat-form-field class="input-full-width">
+          <input #inputChat matInput placeholder="Send a message" name="inputChat" id="inputChat">
+      </mat-form-field>
+      <div class="btnSend">
+          <button type="button" mat-raised-button color="primary" (click)="sendMessage(inputChat.value)">Send Message</button>
+      </div>
+    </div>
+      
+</div>

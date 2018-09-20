@@ -1,12 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="container">
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <app-chat-login></app-chat-login>
+  <app-chat-display></app-chat-display>
 
-  <ul>
-    <li *ngFor="let message of serverMessages">
-      <p>{{ message.message }}</p>
-    </li>
-  </ul>
+  <app-client-form></app-client-form>
+</div>
 

@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ClientFormComponent } from './components/client-form/client-form.component';
+import { ChatDisplayComponent } from './components/chat-display/chat-display.component';
+import { MaterialModule } from './modules/material/material.module';
+import { ChatLoginComponent } from './components/chat-login/chat-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientFormComponent
+    ClientFormComponent,
+    ChatDisplayComponent,
+    ChatLoginComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
