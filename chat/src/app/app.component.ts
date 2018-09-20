@@ -17,11 +17,13 @@ export class AppComponent {
   /**
    * @var :store messages
    */
-  public serverMessages: String[];
+  public serverMessages: any[];
 
   constructor () {
     console.log('Connection to client WebSocket');
     this._socket = new WebSocketSubject('ws://127.0.0.1:8999');
+    // init of array of messages
+    this.serverMessages = [];
     // test connection to outside
     this._send();
     // subscribe to server events
