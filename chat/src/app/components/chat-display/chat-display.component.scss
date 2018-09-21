@@ -2,44 +2,134 @@ ul {
     list-style: none;
     height: 400px;
     overflow: auto;
+    width: 100%;
   }
 li {
+    //position: relative;
+    //display: inline-block;
+    //display: flex; 
+    //flex-direction: column-reverse;
+    max-width:100%; /* limit width */
+    height: auto;
+    width:auto;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 70px;
+}
+/*.messContent {
     //background-color: #f5f8fc;
     border: solid 1px;
     border-color: #640a70;
     border-radius: 25px;
 
-    margin-top: 15px;
+    margin-top: 65px;
     margin-right:45%;
     padding-right: 20px;
     padding-left: 20px;
     padding-top:10px;
     padding-bottom:10px;
 
-    display: inline-block;
-    //display: flex; 
-    //flex-direction: column-reverse;
-    max-width:100%; /* limit width */
     height: auto;
     width:auto;
     box-shadow: 2px 2px 1px #888888;
     
-    font-family: 'Roboto', sans-serif;
+    
     font-size: 1.3em;
     text-align: left;
     font-weight: bold;
-    //word-break:break-all;
     word-wrap: break-word;
     
     
+}*/
+.serverBlock {
+    display: flex;
+    flex-flow: row-reverse; 
+    //margin-right: 50px;
+    //width:auto!important;
 }
-p {
-    position: relative;
-    left: 10%;
-    top: 28%;
-    width:inherit;
+.messContent {
+    //background-color: #f5f8fc;
+    border: solid 1px;
+    border-color: #cd10e6;
+    border-radius: 15px;
+    box-shadow: 2px 2px 1px #888888;
+
+    padding: 15px;
+    display: inline-block; 
+    
+    font-size: 1.3em;
+    text-align: left;
+    font-weight: bold;
+    //@at-rootword-break:break-all;
+    word-wrap: break-word;  
+    height: auto;
+    width:100%; 
+    //flex-basis: auto;
+    //flex-flow: column row wrap;
+    
+}
+.serverContent {
+    //background-color: #f5f8fc;
+    border: solid 1px;
+    border-color: #0a1470;
+    border-radius: 15px;
+    box-shadow: 2px 2px 1px #888888;
+
+    padding: 15px;
+    width:auto!important; 
+    
+    display: inline-block; 
+    //flex-basis: auto;
+    //flex-flow: column row-reverse wrap; 
+    font-size: 1.3em;
+    text-align: left;
+    font-weight: bold;
+    
+    word-wrap: break-word; 
+    height: auto;
+       
     
 }
 .listMessages{
     margin:50px;
 }
+
+.messDate {
+    font-size: 0.7em;
+    /*position: relative;
+    right: 65%;
+    top: 50px;*/
+}
+.serverDate {
+    font-size: 0.7em;
+    margin-right:10px;
+    //position: relative;
+   // right: 0;
+    //top: 50px;
+}
+
+.messId {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #640a70;
+    margin-right:10px;
+
+}
+
+.serverId {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #0a1470;
+    margin-right:10px;
+}
+.serverBlockMess {
+    margin-top:50px;
+   // margin-right: -200px;
+}
+
+.clientBlockMess {
+    margin-top:25px;
+}
+.serverBlockMisc {
+    margin-left: 30px;
+}
+

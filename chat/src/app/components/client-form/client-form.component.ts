@@ -20,12 +20,12 @@ export class ClientFormComponent implements OnInit {
   private _socket: WebSocketSubject<any>;
 
   /**
-   * Subscribing to a todo coming from TodoService
+   * Subscribing to a user id coming from chat Service
    */
   private clientId: Subscription;
 
   private envelop: any;
-  private _id: any;
+  public _id: any;
 
   public inputChat: string;
 
@@ -36,6 +36,7 @@ export class ClientFormComponent implements OnInit {
     this._socket = new WebSocketSubject('ws://127.0.0.1:8999');
     this.envelop = {};
     this.inputChat = '';
+    this. _id = '';
     // init of array of messages
 
     this._socket.subscribe((message) => {

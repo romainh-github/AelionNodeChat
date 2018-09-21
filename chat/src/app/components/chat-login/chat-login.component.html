@@ -5,7 +5,8 @@
             <input #inputId matInput placeholder="Select a nickname" name="inputId" id="inputId">
         </mat-form-field>
       
-        <button type="button" mat-raised-button color="primary" (click)="login(inputId.value)">Log In</button>
+        <button type="button" mat-raised-button color="primary" (click)="login(inputId.value)" [hidden]="logged == true">Log In</button>
+        <button type="button" mat-raised-button color="primary" (click)="logged = false" [hidden]="logged == false">Log Out</button>
       </div>
       <div>
         Nickname is: {{inputId.value}}

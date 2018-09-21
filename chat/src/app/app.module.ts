@@ -8,6 +8,7 @@ import { MaterialModule } from './modules/material/material.module';
 import { ChatLoginComponent } from './components/chat-login/chat-login.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { FormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     MaterialModule,
     OrderModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

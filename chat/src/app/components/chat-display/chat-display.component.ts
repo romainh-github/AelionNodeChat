@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { WebSocketSubject } from 'rxjs/webSocket';
 import {ChatService} from './../../shared/services/chat.service';
 import { Subscription } from 'rxjs';
-import sortBy from 'array-sort-by';
 import { OrderPipe } from 'ngx-order-pipe';
+import * as moment from 'moment';
+import {MatIconModule} from '@angular/material';
+
+
+
 
 @Component({
   selector: 'app-chat-display',
@@ -25,17 +29,21 @@ export class ChatDisplayComponent implements OnInit {
   public sortedMessages: any[];
   public order: String = 'date';
   public reverse: Boolean = true;
+  // subscribe to user id
+  private clientId: Subscription;
+  public _id: any;
 
 
-  constructor (private orderPipe: OrderPipe) {
+  constructor (private orderPipe: OrderPipe, private chatService: ChatService) {
     console.log('Connection to client WebSocket');
     this._socket = new WebSocketSubject('ws://127.0.0.1:8999');
     // init of array of messages
     this.serverMessages = [];
+    this._id = '';
     // this.sortedMessages = orderPipe.transform(this.serverMessages, 'message.message');
     // this.serverMessages.reverse();
     // test connection to outside
-    // this._send();
+     this._send();
     // subscribe to server events
     this._socket.subscribe((message) => {
       this.serverMessages.push(message);
@@ -45,13 +53,20 @@ export class ChatDisplayComponent implements OnInit {
       (err) => console.error(err),
       () => console.warn('Completed !')
     );
+
+    // subscribe id
+    this.clientId = this.chatService.getId().subscribe((id) => {
+      console.log('user chosen id is : ' + id);
+      this._id = id;
+    });
   }
 
   private _send(): void {
     console.log('Send new message to server');
     const envelop: any = {};
+    envelop.date = moment().format('MMMM Do YYYY, h:mm:ss a');
     envelop.id = 'Bot';
-    envelop.message = 'Blabla connected';
+    envelop.message = 'User connected';
     this.serverMessages.push(envelop);
     // this.serverMessages.reverse();
     this._socket.next(envelop);

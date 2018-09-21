@@ -1,8 +1,33 @@
 <div class="container-fluid listMessages">
   <ul>
     <li *ngFor="let message of sortedMessages | orderBy: order:reverse">
-      {{message.id}} -- {{ message.message }} -- {{ message.date }}
+      <!--<i class="material-icons">face</i>-->
+
+      <div *ngIf="message.id == _id else loading">
+        <div>
+          <span class="messId">{{message.id}}</span>: <span class="messDate">{{ message.date }}</span>
+        </div>
+        <div class="clientBlockMess">
+          <span class="messContent">{{ message.message }}</span> 
+        </div>
+      </div>
+      <ng-template #loading>
+        
+        <div class="serverBlock">
+          <div class="serverBlockMisc">
+            <span class="serverId">{{message.id}}</span>: <span class="serverDate">{{ message.date }}</span> 
+            
+          </div>
+          <div class="serverBlockMess">
+            <span class="serverContent">{{ message.message }}</span>
+          </div>
+        </div>
+      </ng-template>
+
+      
+      
     </li>
+    
   </ul>
 
 </div>
