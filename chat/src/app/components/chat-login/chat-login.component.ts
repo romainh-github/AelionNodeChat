@@ -26,6 +26,7 @@ export class ChatLoginComponent implements OnInit {
     this.id = id;
     console.log(id);
     this.chatService.sendId(id);
+    this.logged = true;
   }
 
 }

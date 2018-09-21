@@ -11,7 +11,7 @@ export class ChatService {
    * Define an observable subject of type string for getting id
    */
   private idSubject: Subject<string> = new Subject<string>();
-  currentId = this.idSubject.asObservable();
+  // currentId = this.idSubject.asObservable();
 
   constructor() { }
 

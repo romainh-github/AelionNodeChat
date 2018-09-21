@@ -6,6 +6,8 @@ import { ClientFormComponent } from './components/client-form/client-form.compon
 import { ChatDisplayComponent } from './components/chat-display/chat-display.component';
 import { MaterialModule } from './modules/material/material.module';
 import { ChatLoginComponent } from './components/chat-login/chat-login.component';
+import { OrderModule } from 'ngx-order-pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ChatLoginComponent } from './components/chat-login/chat-login.component
   ],
   imports: [
     BrowserModule,
-    MaterialModule
+    MaterialModule,
+    OrderModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

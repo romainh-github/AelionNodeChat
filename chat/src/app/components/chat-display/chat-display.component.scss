@@ -10,13 +10,15 @@ li {
     border-radius: 25px;
 
     margin-top: 15px;
-    margin-right:35%;
+    margin-right:45%;
     padding-right: 20px;
     padding-left: 20px;
     padding-top:10px;
     padding-bottom:10px;
 
     display: inline-block;
+    //display: flex; 
+    //flex-direction: column-reverse;
     max-width:100%; /* limit width */
     height: auto;
     width:auto;

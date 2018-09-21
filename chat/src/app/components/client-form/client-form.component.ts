@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import {MatFormField} from '@angular/material';
 import { WebSocketSubject } from 'rxjs/webSocket';
+import {ChatService} from './../../shared/services/chat.service';
+import { Subscription } from 'rxjs';
+import * as moment from 'moment';
 
 
 @Component({
@@ -16,11 +19,23 @@ export class ClientFormComponent implements OnInit {
    */
   private _socket: WebSocketSubject<any>;
 
+  /**
+   * Subscribing to a todo coming from TodoService
+   */
+  private clientId: Subscription;
+
+  private envelop: any;
+  private _id: any;
+
+  public inputChat: string;
 
 
-  constructor() {
+
+  constructor(private chatService: ChatService) {
     console.log('Connection to client WebSocket');
     this._socket = new WebSocketSubject('ws://127.0.0.1:8999');
+    this.envelop = {};
+    this.inputChat = '';
     // init of array of messages
 
     this._socket.subscribe((message) => {
@@ -29,6 +44,11 @@ export class ClientFormComponent implements OnInit {
       (err) => console.error(err),
       () => console.warn('Completed !')
     );
+
+    this.clientId = this.chatService.getId().subscribe((id) => {
+      console.log('user chosen id is : ' + id);
+      this._id = id;
+    });
   }
 
   ngOnInit() {
@@ -36,10 +56,15 @@ export class ClientFormComponent implements OnInit {
   }
 
   public sendMessage(message: any): any {
-    console.log(message);
-    this._socket.next(message);
-    var inputEmpty = document.getElementById('chatForm');
-    inputEmpty.innerHTML = '';
+    console.log('test getting hour : ' + moment().format('MMMM Do YYYY, h:mm:ss a'));
+    this.envelop.date = moment().format('MMMM Do YYYY, h:mm:ss a');
+    this.envelop.id = this._id;
+    this.envelop.message = message;
+    console.log('Pass enveloppe ? ' + JSON.stringify(this.envelop));
+    console.log('Pass enveloppe sans stringify ? ' + this.envelop);
+    // this._socket.next(JSON.stringify(this.envelop));
+    this._socket.next(this.envelop);
+    this.inputChat = '';
   }
 
 }

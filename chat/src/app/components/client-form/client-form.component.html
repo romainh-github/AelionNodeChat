@@ -2,10 +2,10 @@
     <div class="chat-form" name="chat-form">
       
       <mat-form-field class="input-full-width">
-          <input #inputChat matInput placeholder="Send a message" name="inputChat" id="inputChat">
+          <input #inputChatV matInput placeholder="Send a message" name="inputChat" id="inputChat" [(ngModel)]="inputChat">
       </mat-form-field>
       <div class="btnSend">
-          <button type="button" mat-raised-button color="primary" (click)="sendMessage(inputChat.value)">Send Message</button>
+          <button type="button" mat-raised-button color="primary" (click)="sendMessage(inputChatV.value)">Send Message</button>
       </div>
     </div>
       

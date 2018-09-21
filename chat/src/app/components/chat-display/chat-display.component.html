@@ -1,7 +1,7 @@
 <div class="container-fluid listMessages">
   <ul>
-    <li *ngFor="let message of serverMessages">
-      {{ message.message }}
+    <li *ngFor="let message of sortedMessages | orderBy: order:reverse">
+      {{message.id}} -- {{ message.message }} -- {{ message.date }}
     </li>
   </ul>
 
